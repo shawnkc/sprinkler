@@ -1,4 +1,9 @@
 Sprinker::Application.routes.draw do
+  resources :zone_entries
+
+
+  get "sprinkler_zones/log"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

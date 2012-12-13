@@ -1,0 +1,25 @@
+<h1>Listing zone_entries</h1>
+
+<table>
+  <tr>
+    <th>Zone</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @zone_entries.each do |zone_entry| %>
+  <tr>
+    <td><%= zone_entry.zone %></td>
+    <td><%= zone_entry.duration %></td>
+    <td><%= link_to 'Show', zone_entry %></td>
+    <td><%= link_to 'Edit', edit_zone_entry_path(zone_entry) %></td>
+    <td><%= link_to 'Destroy', zone_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Zone entry', new_zone_entry_path %>
