@@ -1,7 +1,23 @@
 <h1>Sprinkler#moisture</h1>
 <p>value = <%= @moistureEntry.value %></p>
-<%= @x.join(', ') %>
+<!---
+Setting the chart up in javascript because getting at the xAxis labels
+for datetime is difficult in ruby
+-->
 
-<%= high_chart("my_id", @h) do |c| %>
-  $.extend(options, {"xAxis": { "type": "datetime","labels": [ Date.UTC(2007,05,29) ] }});
-<%end %>
+<script type="text/javascript">
+  (function() {
+    var onload = window.onload;
+    window.onload = function(){
+    if (typeof onload == "function") onload();
+      var options, chart;
+      options = { "title": { "text": "<%= @title %>" },"legend": { "layout": "vertical","style": {  } },"xAxis": { "type": "datetime" },"yAxis": { "title": { "text": null },"labels": {  } },"tooltip": { "enabled": true },"credits": { "enabled": false },"plotOptions": { "areaspline": {  } },"chart": { "defaultSeriesType": "line","renderTo": "my_id" },"subtitle": {  },"series": [{ "name": "voltage","data": 
+
+      <%= @test.map{ |f| [f[0].to_datetime.to_i, f[1] ] }.inspect %>
+    }] };
+    chart = new Highcharts.Chart(options);
+    };
+  })()
+</script>
+
+<div id="my_id"></div>
