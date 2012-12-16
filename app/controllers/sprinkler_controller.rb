@@ -12,7 +12,7 @@ class SprinklerController < ApplicationController
     end
   end
 
-  # /stop?zone=1-6&duration=123&moisture=1.23
+  # /stop?zone=6&duration=123&moisture=1.23
   def stop
     if (params.has_key?(:moisture))  
       @moistureEntry = Moisture.new(:value => params[:moisture])

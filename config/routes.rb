@@ -1,5 +1,13 @@
 Sprinker::Application.routes.draw do
 
+  get "charts/moisture"
+
+  get "charts/zone"
+
+  get "charts/zones"
+
+  get "charts/all"
+
   match '/sprinkler/start',    to: 'sprinkler#start'
   match '/sprinkler/stop',     to: 'sprinkler#stop'
   match '/sprinkler/moisture', to: 'sprinkler#moisture'
