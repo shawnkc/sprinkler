@@ -1,14 +1,14 @@
 # == Schema Information
 #
-# Table name: zone_entries
+# Table name: moistures
 #
 #  id         :integer          not null, primary key
-#  zone       :integer
-#  duration   :decimal(, )
+#  value      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class ZoneEntry < ActiveRecord::Base
-  attr_accessible :duration, :zone
+class Moisture < ActiveRecord::Base
+  attr_accessible :value
+  
 end

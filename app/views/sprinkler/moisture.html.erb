@@ -1,0 +1,7 @@
+<h1>Sprinkler#moisture</h1>
+<p>value = <%= @moistureEntry.value %></p>
+<%= @x.join(', ') %>
+
+<%= high_chart("my_id", @h) do |c| %>
+  $.extend(options, {"xAxis": { "type": "datetime","labels": [ Date.UTC(2007,05,29) ] }});
+<%end %>

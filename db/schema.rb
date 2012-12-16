@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209192022) do
+ActiveRecord::Schema.define(:version => 20121213043725) do
+
+  create_table "moistures", :force => true do |t|
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "zone_entries", :force => true do |t|
     t.integer  "zone"

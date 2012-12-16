@@ -1,8 +1,10 @@
 Sprinker::Application.routes.draw do
+
+  match '/sprinkler/start',    to: 'sprinkler#start'
+  match '/sprinkler/stop',     to: 'sprinkler#stop'
+  match '/sprinkler/moisture', to: 'sprinkler#moisture'
+
   resources :zone_entries
-
-
-  get "sprinkler_zones/log"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
