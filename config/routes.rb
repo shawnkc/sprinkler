@@ -1,5 +1,7 @@
 Sprinker::Application.routes.draw do
 
+  get "sprinkler/delete_all_rows"
+
   get "charts/moisture"
 
   get "charts/zone"
@@ -11,6 +13,8 @@ Sprinker::Application.routes.draw do
   match '/sprinkler/start',    to: 'sprinkler#start'
   match '/sprinkler/stop',     to: 'sprinkler#stop'
   match '/sprinkler/moisture', to: 'sprinkler#moisture'
+
+  get "sprinkler/deleteAllRows"
 
   resources :zone_entries
 

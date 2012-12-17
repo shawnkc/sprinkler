@@ -2,10 +2,24 @@
 
 class SprinklerController < ApplicationController
 
+  def delete_all_rows
+    Moisture.delete_all
+    ZoneEntry.delete_all
+  end
+
+  def truncateOldRows
+    # Fetch your latest N records (to stay within 70% of 10k limit)
+    days = 14;
+    seconds = days * 24 * 60 * 60
+    Moisture.delete_all(["created_at < ?", Time.now - seconds]) 
+    ZoneEntry.delete_all(["created_at < ?", Time.now - seconds]) 
+  end
+
   # called when the sprinkler zone is turned on
   def start
     # just logs the moisture value for now, 
     # time information is logged in stop
+    truncateOldRows()
     if (params.has_key?(:moisture))  
       @moistureEntry = Moisture.new(:value => params[:moisture])
       @moistureEntry.save
@@ -14,6 +28,7 @@ class SprinklerController < ApplicationController
 
   # /stop?zone=6&duration=123&moisture=1.23
   def stop
+    truncateOldRows()
     if (params.has_key?(:moisture))  
       @moistureEntry = Moisture.new(:value => params[:moisture])
       @moistureEntry.save
@@ -26,6 +41,7 @@ class SprinklerController < ApplicationController
 
   # for stand alone moisture data updates
   def moisture
+    truncateOldRows()
     if (params.has_key?(:moisture))  
       @moistureEntry = Moisture.new(:value => params[:moisture])
       @moistureEntry.save
