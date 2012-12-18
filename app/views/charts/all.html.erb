@@ -11,11 +11,11 @@ for datetime is difficult in ruby
       var options, chart;
       options = { "title": { "text": "<%= @title %>" },"legend": { "layout": "vertical","style": {  } },"xAxis": { "type": "datetime" },"yAxis": { "title": { "text": null },"labels": {  } },"tooltip": { "enabled": true },"credits": { "enabled": false },"plotOptions": { "areaspline": {  } },"chart": { "defaultSeriesType": "line","renderTo": "my_id" },"subtitle": {  },"series": [
 
-        {"name":"voltage", "data":<%= @moistureValues.map{ |f| [f[0].to_datetime.to_i * 1000, f[1] ] }.inspect %>},
+        {"name":"voltage", "data":<%= @moistureValues.map{ |f| [(f[0].to_datetime.to_i + Time.zone_offset('CST')) * 1000, f[1] ] }.inspect %>},
         {"name":"zone1", "type":"scatter", "marker": {
                         "symbol": 'url(http://www.highcharts.com/demo/gfx/snow.png)'
                     },
-        "data":<%= @onValues.map{ |f| [f[0].to_datetime.to_i * 1000, 0.0 ] }.inspect %>}
+        "data":<%= @onValues.map{ |f| [(f[0].to_datetime.to_i + Time.zone_offset('CST')) * 1000, 0.0 ] }.inspect %>}
 
         ]
       };
