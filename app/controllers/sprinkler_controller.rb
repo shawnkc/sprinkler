@@ -5,6 +5,7 @@ class SprinklerController < ApplicationController
   def delete_all_rows
     #Moisture.delete_all
     #ZoneEntry.delete_all
+    truncateOldRows()
     Moisture.delete_all(["value < ?", 1.0]) 
   end
 
