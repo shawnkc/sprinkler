@@ -23,7 +23,7 @@ class SprinklerController < ApplicationController
     # time information is logged in stop
     truncateOldRows()
     if (params.has_key?(:moisture))  
-      @moistureEntry = Moisture.new(:value => params[:moisture])
+      @moistureEntry = Moisture.new(:moisture => params[:moisture])
       @moistureEntry.save
     end
   end
@@ -32,7 +32,7 @@ class SprinklerController < ApplicationController
   def stop
     truncateOldRows()
     if (params.has_key?(:moisture))  
-      @moistureEntry = Moisture.new(:value => params[:moisture])
+      @moistureEntry = Moisture.new(:moisture => params[:moisture])
       @moistureEntry.save
     end
     if (params.has_key?(:zone) && params.has_key?(:duration))  
@@ -45,7 +45,7 @@ class SprinklerController < ApplicationController
   def moisture
     truncateOldRows()
     if (params.has_key?(:moisture))  
-      @moistureEntry = Moisture.new(:value => params[:moisture])
+      @moistureEntry = Moisture.new(:moisture => params[:moisture])
       @moistureEntry.save
     end
   end

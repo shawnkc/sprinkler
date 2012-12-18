@@ -7,7 +7,7 @@ class ChartsController < ApplicationController
     Moisture.find_each do |x|
       a = Array.new()
       a.push(x[:created_at].to_time)
-      a.push(x[:value].to_f)
+      a.push(x[:moisture].to_f)
       @moistureValues.push(a)
     end
 
@@ -26,7 +26,7 @@ class ChartsController < ApplicationController
     Moisture.find_each do |x|
       a = Array.new()
       a.push(x[:created_at].to_time)
-      a.push(x[:value].to_f)
+      a.push(x[:moisture].to_f)
       @moistureValues.push(a)
     end
 

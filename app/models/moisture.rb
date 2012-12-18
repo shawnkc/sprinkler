@@ -9,6 +9,6 @@
 #
 
 class Moisture < ActiveRecord::Base
-  attr_accessible :value
+  attr_accessible :value, :moisture
   
 end

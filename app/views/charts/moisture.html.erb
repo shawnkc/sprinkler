@@ -11,7 +11,7 @@ for datetime is difficult in ruby
       var options, chart;
       options = { "title": { "text": "<%= @title %>" },"legend": { "layout": "vertical","style": {  } },"xAxis": { "type": "datetime" },"yAxis": { "title": { "text": null },"labels": {  } },"tooltip": { "enabled": true },"credits": { "enabled": false },"plotOptions": { "areaspline": {  } },"chart": { "defaultSeriesType": "line","renderTo": "my_id" },"subtitle": {  },"series": [{ "name": "voltage","data": 
 
-      <%= @moistureValues.map{ |f| [f[0].to_datetime.to_i, f[1] ] }.inspect %>
+      <%= @moistureValues.map{ |f| [f[0].to_datetime.to_i * 1000, f[1] ] }.inspect %>
     }] };
     chart = new Highcharts.Chart(options);
     };
